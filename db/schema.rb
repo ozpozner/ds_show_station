@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20150324175014) do
     t.string   "pass"
     t.integer  "nextID"
     t.integer  "prevID"
-    t.integer  "type"
+    t.integer  "deviceTypeID"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

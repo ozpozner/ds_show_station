@@ -7,7 +7,7 @@ class CreateDevices < ActiveRecord::Migration
       t.string :pass
       t.integer :nextID
       t.integer :prevID
-      t.integer :type
+      t.integer :deviceTypeID
 
       t.timestamps
     end
