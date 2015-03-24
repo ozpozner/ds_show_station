@@ -1,0 +1,47 @@
+<h1>Listing samples</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Routeid</th>
+      <th>Prevhbs</th>
+      <th>Currenthbs</th>
+      <th>Nexthbs</th>
+      <th>Hmu1</th>
+      <th>Hmu2</th>
+      <th>Hmu1 rssi</th>
+      <th>Hmu2 rssi</th>
+      <th>Hmu1 data</th>
+      <th>Hmu2 data</th>
+      <th>Hmu1 hbs</th>
+      <th>Hmu2 hbs</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @samples.each do |sample| %>
+      <tr>
+        <td><%= sample.routeId %></td>
+        <td><%= sample.prevHBS %></td>
+        <td><%= sample.currentHBS %></td>
+        <td><%= sample.nextHBS %></td>
+        <td><%= sample.hmu1 %></td>
+        <td><%= sample.hmu2 %></td>
+        <td><%= sample.hmu1_RSSI %></td>
+        <td><%= sample.hmu2_RSSI %></td>
+        <td><%= sample.hmu1_DATA %></td>
+        <td><%= sample.hmu2_DATA %></td>
+        <td><%= sample.hmu1_HBS %></td>
+        <td><%= sample.hmu2_HBS %></td>
+        <td><%= link_to 'Show', sample %></td>
+        <td><%= link_to 'Edit', edit_sample_path(sample) %></td>
+        <td><%= link_to 'Destroy', sample, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sample', new_sample_path %>

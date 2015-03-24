@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @myroute.name %>
+</p>
+
+<p>
+  <strong>Id:</strong>
+  <%= @myroute.id %>
+</p>
+
+<p>
+  <strong>Deviceid:</strong>
+  <%= @myroute.deviceId %>
+</p>
+
+<p>
+  <strong>Nextdeviceid:</strong>
+  <%= @myroute.nextDeviceId %>
+</p>
+
+<p>
+  <strong>Prevdeviceid:</strong>
+  <%= @myroute.prevDeviceId %>
+</p>
+
+<%= link_to 'Edit', edit_myroute_path(@myroute) %> |
+<%= link_to 'Back', myroutes_path %>

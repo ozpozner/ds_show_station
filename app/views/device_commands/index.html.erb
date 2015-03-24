@@ -1,0 +1,31 @@
+<h1>Listing device_commands</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Devicetype</th>
+      <th>Command</th>
+      <th>Numofr</th>
+      <th>Commandid</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @device_commands.each do |device_command| %>
+      <tr>
+        <td><%= device_command.deviceType %></td>
+        <td><%= device_command.command %></td>
+        <td><%= device_command.numOfR %></td>
+        <td><%= device_command.commandId %></td>
+        <td><%= link_to 'Show', device_command %></td>
+        <td><%= link_to 'Edit', edit_device_command_path(device_command) %></td>
+        <td><%= link_to 'Destroy', device_command, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Device command', new_device_command_path %>

@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  routeId: 1
+  prevHBS: 1
+  currentHBS: 1
+  nextHBS: 1
+  hmu1: 1
+  hmu2: 1
+  hmu1_RSSI: 1
+  hmu2_RSSI: 1
+  hmu1_DATA: 1.5
+  hmu2_DATA: 1.5
+  hmu1_HBS: MyString
+  hmu2_HBS: MyString
+
+two:
+  routeId: 1
+  prevHBS: 1
+  currentHBS: 1
+  nextHBS: 1
+  hmu1: 1
+  hmu2: 1
+  hmu1_RSSI: 1
+  hmu2_RSSI: 1
+  hmu1_DATA: 1.5
+  hmu2_DATA: 1.5
+  hmu1_HBS: MyString
+  hmu2_HBS: MyString

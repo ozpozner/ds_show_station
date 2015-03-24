@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  ip_addr: MyString
+  login: MyString
+  pass: MyString
+  nextID: 1
+  prevID: 1
+  type: 1
+
+two:
+  name: MyString
+  ip_addr: MyString
+  login: MyString
+  pass: MyString
+  nextID: 1
+  prevID: 1
+  type: 1

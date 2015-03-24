@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Devicetype:</strong>
+  <%= @device_command.deviceType %>
+</p>
+
+<p>
+  <strong>Command:</strong>
+  <%= @device_command.command %>
+</p>
+
+<p>
+  <strong>Numofr:</strong>
+  <%= @device_command.numOfR %>
+</p>
+
+<p>
+  <strong>Commandid:</strong>
+  <%= @device_command.commandId %>
+</p>
+
+<%= link_to 'Edit', edit_device_command_path(@device_command) %> |
+<%= link_to 'Back', device_commands_path %>

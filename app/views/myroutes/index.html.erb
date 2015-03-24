@@ -1,0 +1,33 @@
+<h1>Listing myroutes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Id</th>
+      <th>Deviceid</th>
+      <th>Nextdeviceid</th>
+      <th>Prevdeviceid</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @myroutes.each do |myroute| %>
+      <tr>
+        <td><%= myroute.name %></td>
+        <td><%= myroute.id %></td>
+        <td><%= myroute.deviceId %></td>
+        <td><%= myroute.nextDeviceId %></td>
+        <td><%= myroute.prevDeviceId %></td>
+        <td><%= link_to 'Show', myroute %></td>
+        <td><%= link_to 'Edit', edit_myroute_path(myroute) %></td>
+        <td><%= link_to 'Destroy', myroute, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Myroute', new_myroute_path %>

@@ -1,0 +1,33 @@
+<%= form_for(@device_command) do |f| %>
+  <% if @device_command.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@device_command.errors.count, "error") %> prohibited this device_command from being saved:</h2>
+
+      <ul>
+      <% @device_command.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :deviceType %><br>
+    <%= f.number_field :deviceType %>
+  </div>
+  <div class="field">
+    <%= f.label :command %><br>
+    <%= f.text_field :command %>
+  </div>
+  <div class="field">
+    <%= f.label :numOfR %><br>
+    <%= f.number_field :numOfR %>
+  </div>
+  <div class="field">
+    <%= f.label :commandId %><br>
+    <%= f.number_field :commandId %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

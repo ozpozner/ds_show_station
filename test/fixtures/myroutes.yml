@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  id: 1
+  deviceId: 1
+  nextDeviceId: 1
+  prevDeviceId: 1
+
+two:
+  name: MyString
+  id: 1
+  deviceId: 1
+  nextDeviceId: 1
+  prevDeviceId: 1
