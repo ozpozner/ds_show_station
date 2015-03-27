@@ -1,5 +1,10 @@
+require 'net/telnet'
+require 'snmp'
+include SNMP
+
 class SamplesController < ApplicationController
   before_action :set_sample, only: [:show, :edit, :update, :destroy]
+  layout "sample", only: [:sample]  
 
   # GET /samples
   # GET /samples.json
@@ -61,6 +66,228 @@ class SamplesController < ApplicationController
     end
   end
 
+  def sample
+    logger.debug('starting sample')
+   
+    # finding MySampledDevices
+      layout =  
+      debug=true
+      debuglevel=1;
+      logger.debug("debug level #{debuglevel}")
+      bh_air    = Hash.new;
+      bh_lan    = Hash.new;
+      
+       #bh = {:RSS => '0', :TX => '0', :RX=>'0'};
+       bh = {:address => '0',
+             :RX => '0',
+             :TX => '0',
+             :RSSI=>'0'};
+       bh_air = { 
+             :No => '0',
+             :OK => '0',
+             :UAS => '0',
+             :ES => '0',
+             :SES => '0',
+             :BBE => '0',
+             :MinRSL => '0',
+             :MaxRSL => '0',
+             :RSLTD1 => '0',
+             :RSLTD2 => '0',
+             :MinTSL => '0',
+             :MaxTSL => '0',
+             :TSLTD1 => '0',
+             :BBERTD1 => '0'  };
+       bh_lan = { 
+             :No => '0',
+             :OK => '0',
+             :UAS => '0',
+             :ES => '0',
+             :SES => '0',
+             :BBE => '0',
+             :RxMBytes => '0',
+             :TxMBytes => '0',
+             :EthTHRUnder => '0',
+             :HighTrEx => '0' };
+
+    tn=Hash.new;  
+    @msd||=Device.where(:deviceTypeID => 1)
+    @hmus||=Device.where(:deviceTypeID => 2)
+    @device=nil
+    
+    begin
+         logger.debug('creating Telnet adapters')
+         @msd.each do |device|
+           @device=device
+           tn[device.id]||= Net::Telnet::new("Host"=>device.ip_addr, "Timeout"=>2, "Output_log"=>"#{Rails.root}/log/output_log.log", "Dump_log"=> "#{Rails.root}/log/dump_log.log")
+        #   logger.debug( tn[device.id] )
+           tn[device.id].login('admin', 'netman')
+         end
+      
+         @hmus.each do |device|
+         @device=device
+         tn[device.id] ||= Net::Telnet::new("Host"=>device.ip_addr, "Timeout"=>2, "Output_log"=>"#{Rails.root}/log/output_log.log", "Dump_log"=> "#{Rails.root}/log/dump_log.log")
+       #  logger.debug( tn[device.id] )
+         tn[device.id].login('admin', 'netman')
+         
+       end  
+    
+ 
+    rescue
+         puts $!  
+         logger.debug("ending connection to #{@device.name}")
+          device=@device
+          tn[device.id].close unless tn[device.id].nil? 
+        #  tn[device.id]=nil
+    ensure
+   end 
+           attempt=1   
+    2.times do
+     
+    begin
+      logger.debug("---------------- new sample ##{Sample.count +1} (#{attempt})-------------------")
+     attempt =+1      
+     @sample=Sample.new  
+     @msd.each do |device|
+      logger.debug("parsing HBS: #{device.name}")
+      bh = {:address => '0',
+                 :RX => '0',
+                 :TX => '0',
+                 :RSSI=>'0'};
+      hashkey =0;
+      li =0;
+      myparamid =0;
+      bh[:address] = device.ip_addr    
+      tn[device.id].cmd('display PM LAN1 current') do |output|
+        keys=bh_lan.keys;
+          li +=1;
+          output.strip.split(/\s/).each do |line|
+            line.strip.split('|').each do |line_param|
+            myparamid +=1;
+              if (debug && debuglevel >4 ) then 
+                puts ("#{myparamid}==#{line_param}")
+              end
+              if (myparamid == 32) then
+                             bh[:RX] = "#{line_param} ".strip;
+              end 
+              if (myparamid == 33 && bh[:RX]=="") then
+                                           bh[:RX] = "#{line_param} ".strip;
+                            end 
+              if (myparamid == 34) then
+                             bh[:TX] = "#{line_param} ".strip;
+               end
+              if (myparamid == 35 && bh[:TX]=="") then
+                              bh[:TX] = "#{line_param} ".strip;
+                                          end  
+            if (hashkey >=1 && hashkey <=10 && line_param!="") then
+                bh_lan[keys[hashkey-1]]=line_param;
+                hashkey +=1;
+            end
+            if line_param == 'HighTrEx' then
+              hashkey +=1;
+            end  
+           
+          end #line_param
+        end #line  
+      end #telnet 'display PM AIR current'
+        @sample.hbs1_RX = bh[:RX] if device.name == "HBS1"
+        @sample.hbs2_RX = bh[:RX] if device.name == "HBS2" 
+          puts "!!!!!!!!!!!!!! #{device.name } = #{bh[:RX]}"  
+      #todo: check prev and next    
+      
+    end # each HBS
+    
+    @hmus.each do |device|
+        bh = {:address => '0',
+                  :RX => '0',
+                  :TX => '0',
+                  :RSSI=>'0'};
+        logger.debug("parsing HMU: #{device.name}")
+          last_param = "";
+           hashkey =0;
+              li =0;
+              myparamid =0;
+              bh[:address] = device.ip_addr    
+        begin        
+          logger.debug("---------  telnet HMU: #{device.name} ------- ")
+          
+              tn[device.id].cmd('display PM LAN1 current') do |output|
+                 keys=bh_lan.keys;
+                  li +=1;
+                  output.strip.split(/\s/).each do |line|
+                    line.strip.split('|').each do |line_param|
+                    myparamid +=1;
+                      if (debug && debuglevel>4) then 
+                        puts ("#{myparamid}==#{line_param}")
+                      end
+                      if (myparamid == 33) then
+                                     bh[:RX] = "#{line_param} ".strip;
+                      end 
+                      if (myparamid == 35) then
+                                               bh[:TX] = "#{line_param} ".strip;
+                       end 
+                    if (hashkey >=1 && hashkey <=10 && line_param!="") then
+                        bh_lan[keys[hashkey-1]]=line_param;
+                        hashkey +=1;
+                    end
+                    if line_param == 'HighTrEx' then
+                      hashkey +=1;
+                    end  
+                    if (debug && debuglevel>4) then 
+                      puts line_param
+                    end
+                  end #line_param
+                end #line  
+              
+            
+         end #telnet 'display PM AIR current'
+         tn[device.id].cmd('display link') do |output|
+             keys=bh_lan.keys;
+               li +=1;
+               output.strip.split(/\s/).each do |line|
+                 line.strip.split('|').each do |line_param|
+                 myparamid +=1;
+                   if (debug && debuglevel>4) then 
+                     puts ("last=[#{last_param}] #{myparamid}==#{line_param} ".strip)
+                   end
+                   
+                   if (last_param == "RSS") then
+                        puts "RSS= #{line_param} ".strip
+                        bh[:RSSI] = "#{line_param} ".strip;
+                   end 
+                 last_param="#{line_param} ".strip
+               end #line_param
+             end #line  
+           end #telnet 'display link'  
+        rescue
+           puts "telnet error #{$!}"
+       end         
+        @sample.hmu1_RSSI = bh[:RSSI]  if device.name == "HMU1"    
+        @sample.hmu2_RSSI = bh[:RSSI]  if device.name == "HMU2"  
+        @sample.hmu1_TX = bh[:TX] if "#{device.name}" == "HMU1"    
+        @sample.hmu2_TX = bh[:TX] if "#{device.name}" == "HMU2"  
+   
+              end # each HMU 
+     if ((@sample.hmu1_RSSI==0 && @sample.hmu2_RSSI ==0 ) || @sample.hbs1_RX.nil? || @sample.hbs2_RX.nil? )
+       logger.debug("error=#{$!} can't save sample - HBS2: #{@sample.hbs1_RX.to_s} HBS2: #{@sample.hbs2_RX.to_s}")
+
+     else
+       @sample.save
+     end    
+     
+   rescue
+     puts $!  
+	ensure
+     if ((@sample.hmu1_RSSI==0 && @sample.hmu2_RSSI ==0 ) || @sample.hbs1_RX.nil? || @sample.hbs2_RX.nil? )
+        logger.debug("error=#{$!} can't Ensure save sample - HBS2: #{@sample.hbs1_RX.to_s} HBS2: #{@sample.hbs2_RX.to_s}")
+     else
+       @sample.save
+     end  	
+  end
+end #3.times do
+    @samples=Sample.all.order("id desc").limit(12)
+    
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_sample
@@ -69,6 +296,7 @@ class SamplesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sample_params
-      params.require(:sample).permit(:routeId, :prevHBS, :currentHBS, :nextHBS, :hmu1, :hmu2, :hmu1_RSSI, :hmu2_RSSI, :hmu1_DATA, :hmu2_DATA, :hmu1_HBS, :hmu2_HBS)
+      params.require(:sample).permit(:routeId, :prevHBS, :currentHBS, :nextHBS, :hmu1, :hmu2, :hmu1_RSSI, :hmu2_RSSI, :hmu1_TX, :hmu2_TX, :hbs1_RX, :hbs2_RX, :hmu1_HBS, :hmu2_HBS)
     end
 end
+

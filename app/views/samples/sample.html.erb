@@ -1,0 +1,64 @@
+
+<h1>Listing devices</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Ip addr</th>
+    </tr>
+  </thead>
+
+  <tbody>  
+     <% @msd.each do |device| %>
+      <tr>
+        <td><%= device.name %></td>
+        <td><%= device.ip_addr %></td>
+       </tr>
+    <% end %>
+      <% @hmus.each do |device| %>
+      <tr>
+        <td><%= device.name %></td>
+        <td><%= device.ip_addr %></td>
+       </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+	
+<h1>Showing samples (<%= Sample.count %>)- <%= Time.now.to_s %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>id</th>	
+      <th>created_at</th>
+      <th>Hmu1 rssi</th>
+      <th>Hmu2 rssi</th>
+      <th>Hmu1 TX</th>
+      <th>Hmu2 TX</th>
+      <th>HBS1 RX</th>
+      <th>HBS2 RX</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @samples.each do |sample| %>
+      <tr>
+      	<td><%= sample.id %></td>
+        <td><%= sample.created_at %></td>
+        <td><%= sample.hmu1_RSSI %></td>
+        <td><%= sample.hmu2_RSSI %></td>
+        <td><%= sample.hmu1_TX %></td>
+        <td><%= sample.hmu2_TX %></td>
+        <td><%= sample.hbs1_RX %></td>
+        <td><%= sample.hbs2_RX %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Re Sample', '/sample' %>
+
