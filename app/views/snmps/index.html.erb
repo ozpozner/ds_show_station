@@ -1,0 +1,63 @@
+<h1>Listing snmps</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Oid</th>
+      <th>S1</th>
+      <th>S2</th>
+      <th>S3</th>
+      <th>S4</th>
+      <th>S5</th>
+      <th>S6</th>
+      <th>S7</th>
+      <th>S8</th>
+      <th>S9</th>
+      <th>S10</th>
+      <th>Rssi1</th>
+      <th>Rss2</th>
+      <th>Lmrv1</th>
+      <th>Lmrv2</th>
+      <th>Hmu1s</th>
+      <th>Hmu2s</th>
+      <th>Numoflinks</th>
+      <th>Deviceid</th>
+      <th>Ipaddr</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @snmps.each do |snmp| %>
+      <tr>
+        <td><%= snmp.oid %></td>
+        <td><%= snmp.s1 %></td>
+        <td><%= snmp.s2 %></td>
+        <td><%= snmp.s3 %></td>
+        <td><%= snmp.s4 %></td>
+        <td><%= snmp.s5 %></td>
+        <td><%= snmp.s6 %></td>
+        <td><%= snmp.s7 %></td>
+        <td><%= snmp.s8 %></td>
+        <td><%= snmp.s9 %></td>
+        <td><%= snmp.s10 %></td>
+        <td><%= snmp.rssi1 %></td>
+        <td><%= snmp.rss2 %></td>
+        <td><%= snmp.lmrv1 %></td>
+        <td><%= snmp.lmrv2 %></td>
+        <td><%= snmp.hmu1s %></td>
+        <td><%= snmp.hmu2s %></td>
+        <td><%= snmp.numoflinks %></td>
+        <td><%= snmp.deviceID %></td>
+        <td><%= snmp.ipaddr %></td>
+        <td><%= link_to 'Show', snmp %></td>
+        <td><%= link_to 'Edit', edit_snmp_path(snmp) %></td>
+        <td><%= link_to 'Destroy', snmp, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Snmp', new_snmp_path %>

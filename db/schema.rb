@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150324214054) do
+ActiveRecord::Schema.define(version: 20150329032934) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -83,6 +83,15 @@ ActiveRecord::Schema.define(version: 20150324214054) do
     t.datetime "updated_at"
   end
 
+  create_table "oids", force: true do |t|
+    t.string   "oid"
+    t.integer  "deviceID"
+    t.integer  "numRV"
+    t.string   "returnType"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "samples", force: true do |t|
     t.integer  "routeId"
     t.integer  "prevHBS"
@@ -100,6 +109,31 @@ ActiveRecord::Schema.define(version: 20150324214054) do
     t.integer  "hbs2_RX"
     t.integer  "hmu1_TX"
     t.integer  "hmu2_TX"
+  end
+
+  create_table "snmps", force: true do |t|
+    t.string   "oid"
+    t.string   "s1"
+    t.string   "s2"
+    t.string   "s3"
+    t.string   "s4"
+    t.string   "s5"
+    t.string   "s6"
+    t.string   "s7"
+    t.string   "s8"
+    t.string   "s9"
+    t.string   "s10"
+    t.string   "rssi1"
+    t.string   "rss2"
+    t.string   "lmrv1"
+    t.string   "lmrv2"
+    t.boolean  "hmu1s"
+    t.boolean  "hmu2s"
+    t.integer  "numoflinks"
+    t.integer  "deviceID"
+    t.string   "ipaddr"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

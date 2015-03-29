@@ -1,0 +1,45 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  oid: MyString
+  s1: MyString
+  s2: MyString
+  s3: MyString
+  s4: MyString
+  s5: MyString
+  s6: MyString
+  s7: MyString
+  s8: MyString
+  s9: MyString
+  s10: MyString
+  rssi1: MyString
+  rss2: MyString
+  lmrv1: MyString
+  lmrv2: MyString
+  hmu1s: false
+  hmu2s: false
+  numoflinks: 1
+  deviceID: 1
+  ipaddr: MyString
+
+two:
+  oid: MyString
+  s1: MyString
+  s2: MyString
+  s3: MyString
+  s4: MyString
+  s5: MyString
+  s6: MyString
+  s7: MyString
+  s8: MyString
+  s9: MyString
+  s10: MyString
+  rssi1: MyString
+  rss2: MyString
+  lmrv1: MyString
+  lmrv2: MyString
+  hmu1s: false
+  hmu2s: false
+  numoflinks: 1
+  deviceID: 1
+  ipaddr: MyString

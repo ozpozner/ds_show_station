@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  oid: MyString
+  deviceID: 1
+  numRV: 1
+  returnType: MyString
+
+two:
+  oid: MyString
+  deviceID: 1
+  numRV: 1
+  returnType: MyString

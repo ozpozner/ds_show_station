@@ -1,0 +1,33 @@
+<%= form_for(@oid) do |f| %>
+  <% if @oid.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@oid.errors.count, "error") %> prohibited this oid from being saved:</h2>
+
+      <ul>
+      <% @oid.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :oid %><br>
+    <%= f.text_field :oid %>
+  </div>
+  <div class="field">
+    <%= f.label :deviceID %><br>
+    <%= f.number_field :deviceID %>
+  </div>
+  <div class="field">
+    <%= f.label :numRV %><br>
+    <%= f.number_field :numRV %>
+  </div>
+  <div class="field">
+    <%= f.label :returnType %><br>
+    <%= f.text_field :returnType %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

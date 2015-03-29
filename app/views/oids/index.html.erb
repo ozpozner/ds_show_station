@@ -1,0 +1,31 @@
+<h1>Listing oids</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Oid</th>
+      <th>Deviceid</th>
+      <th>Numrv</th>
+      <th>Returntype</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @oids.each do |oid| %>
+      <tr>
+        <td><%= oid.oid %></td>
+        <td><%= oid.deviceID %></td>
+        <td><%= oid.numRV %></td>
+        <td><%= oid.returnType %></td>
+        <td><%= link_to 'Show', oid %></td>
+        <td><%= link_to 'Edit', edit_oid_path(oid) %></td>
+        <td><%= link_to 'Destroy', oid, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Oid', new_oid_path %>

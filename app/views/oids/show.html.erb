@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Oid:</strong>
+  <%= @oid.oid %>
+</p>
+
+<p>
+  <strong>Deviceid:</strong>
+  <%= @oid.deviceID %>
+</p>
+
+<p>
+  <strong>Numrv:</strong>
+  <%= @oid.numRV %>
+</p>
+
+<p>
+  <strong>Returntype:</strong>
+  <%= @oid.returnType %>
+</p>
+
+<%= link_to 'Edit', edit_oid_path(@oid) %> |
+<%= link_to 'Back', oids_path %>
