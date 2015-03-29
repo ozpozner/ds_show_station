@@ -9,10 +9,11 @@ def snmp
     @snmp_sample=Snmp.new
     @device=device
     begin
-       oids=Oid.where(:deviceTypeID => 1)
+       oids=Oid.where(:deviceID => 1)
        oids.each do |oid|
            
          input = getattrib(device.ip_addr, oid, 'public', oid.numRV ).split(',')
+         logger.debug( input )
          @snmp_sample.oid=oid.oid
          @snmp_sample.ipaddr=device.ip_addr
          @snmp_sample.deviceID=1
