@@ -1,10 +1,10 @@
 require 'net/telnet'
-
+require 'snmp'
 
 class SamplesController < ApplicationController
   before_action :set_sample, only: [:show, :edit, :update, :destroy]
   layout "sample", only: [:sample]  
-
+  layout "snmp", only: [:snmp]  
   # GET /samples
   # GET /samples.json
   def index
@@ -287,6 +287,62 @@ end #3.times do
     
   end
   
+  ##***********************888888
+def snmp
+    @hbs||=Device.where(:deviceTypeID => 1)
+    @hmus||=Device.where(:deviceTypeID => 2)
+    @device=nil
+    
+  @hbs.each do |device|
+    @snmp_sample=Snmp.new
+    @device=device
+    begin
+       oids=Oid.where(:deviceID => 1)
+       oids.each do |oid|
+           
+         input = getattrib(device.ip_addr, oid, 'public', oid.numRV ).split(',')
+         logger.debug( input )
+         @snmp_sample.oid=oid.oid
+         @snmp_sample.ipaddr=device.ip_addr
+         @snmp_sample.deviceID=1
+         
+         if input[1]=="No links"
+            @snmp_sample.numoflinks = 0
+            @snmp_sample.save 
+            next
+         end 
+         @snmp_sample.numoflinks =oid.oid[(oid.oid.length-1)]
+         @snmp_sample.s1=input[1]       
+         @snmp_sample.s2=input[2]
+         @snmp_sample.s3=input[3]       
+         @snmp_sample.s4=input[4]
+         @snmp_sample.s5=input[5]       
+         @snmp_sample.s6=input[6]
+         @snmp_sample.s7=input[7]       
+         @snmp_sample.s8=input[8]
+         @snmp_sample.s9=input[9]       
+         @snmp_sample.s10=input[10]
+         
+         
+       end  
+    rescue
+      puts $!  
+      logger.debug("Snmp error #{@device.name}")
+    ensure
+         
+    end
+
+  
+  end
+  @snmp=@snmp_sample||Snmp.last
+  @snmps=Snmp.last(10)
+    
+end  
+  
+  ##***************88
+  
+  
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_sample
@@ -297,5 +353,35 @@ end #3.times do
     def sample_params
       params.require(:sample).permit(:routeId, :prevHBS, :currentHBS, :nextHBS, :hmu1, :hmu2, :hmu1_RSSI, :hmu2_RSSI, :hmu1_TX, :hmu2_TX, :hbs1_RX, :hbs2_RX, :hmu1_HBS, :hmu2_HBS)
     end
+
+
+#************8888
+def getattrib (host,oid,community,numofelemetstoreturn)
+     out = ""
+       manager = SNMP::Manager.new(:host => host, :port => 161, :community => community , :version => :SNMPv1)
+       response = manager.get([oid])
+       response.each_varbind do |vb|
+           index=0 
+         vb.inspect.split.each do |val|
+             # puts ("#{index}:"+ val.to_s.gsub(/value=/,''))
+             
+             if index ==1 then
+               out =  val.to_s.gsub(/value=/,'') 
+             else 
+               if (index<=numofelemetstoreturn && index >1) then
+                   out +=" "+val.to_s 
+               end
+             end   
+             index+=1
+            end    
+       end
+       manager.close
+       return out
+     end
+
+#*****************88
+
+
+
 end
 

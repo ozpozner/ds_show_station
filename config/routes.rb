@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :oids
 
   #resources :snmps
-  get '/snmp' => 'snmps#snmp'
+  get '/s' => 'samples#snmp'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
