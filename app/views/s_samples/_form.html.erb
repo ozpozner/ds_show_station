@@ -1,0 +1,97 @@
+<%= form_for(@s_sample) do |f| %>
+  <% if @s_sample.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@s_sample.errors.count, "error") %> prohibited this s_sample from being saved:</h2>
+
+      <ul>
+      <% @s_sample.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :oid %><br>
+    <%= f.text_field :oid %>
+  </div>
+  <div class="field">
+    <%= f.label :s1 %><br>
+    <%= f.text_field :s1 %>
+  </div>
+  <div class="field">
+    <%= f.label :s2 %><br>
+    <%= f.text_field :s2 %>
+  </div>
+  <div class="field">
+    <%= f.label :s3 %><br>
+    <%= f.text_field :s3 %>
+  </div>
+  <div class="field">
+    <%= f.label :s4 %><br>
+    <%= f.text_field :s4 %>
+  </div>
+  <div class="field">
+    <%= f.label :s5 %><br>
+    <%= f.text_field :s5 %>
+  </div>
+  <div class="field">
+    <%= f.label :s6 %><br>
+    <%= f.text_field :s6 %>
+  </div>
+  <div class="field">
+    <%= f.label :s7 %><br>
+    <%= f.text_field :s7 %>
+  </div>
+  <div class="field">
+    <%= f.label :s8 %><br>
+    <%= f.text_field :s8 %>
+  </div>
+  <div class="field">
+    <%= f.label :s9 %><br>
+    <%= f.text_field :s9 %>
+  </div>
+  <div class="field">
+    <%= f.label :s10 %><br>
+    <%= f.text_field :s10 %>
+  </div>
+  <div class="field">
+    <%= f.label :rssi1 %><br>
+    <%= f.text_field :rssi1 %>
+  </div>
+  <div class="field">
+    <%= f.label :rss2 %><br>
+    <%= f.text_field :rss2 %>
+  </div>
+  <div class="field">
+    <%= f.label :lmrv1 %><br>
+    <%= f.text_field :lmrv1 %>
+  </div>
+  <div class="field">
+    <%= f.label :lmrv2 %><br>
+    <%= f.text_field :lmrv2 %>
+  </div>
+  <div class="field">
+    <%= f.label :hmu1s %><br>
+    <%= f.check_box :hmu1s %>
+  </div>
+  <div class="field">
+    <%= f.label :hmu2s %><br>
+    <%= f.check_box :hmu2s %>
+  </div>
+  <div class="field">
+    <%= f.label :numoflinks %><br>
+    <%= f.number_field :numoflinks %>
+  </div>
+  <div class="field">
+    <%= f.label :deviceID %><br>
+    <%= f.number_field :deviceID %>
+  </div>
+  <div class="field">
+    <%= f.label :ipaddr %><br>
+    <%= f.text_field :ipaddr %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :s_samples
+
   resources :oids
 
   #resources :snmps

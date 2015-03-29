@@ -1,0 +1,2 @@
+module SSamplesHelper
+end

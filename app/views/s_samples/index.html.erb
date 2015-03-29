@@ -1,0 +1,63 @@
+<h1>Listing s_samples</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Oid</th>
+      <th>S1</th>
+      <th>S2</th>
+      <th>S3</th>
+      <th>S4</th>
+      <th>S5</th>
+      <th>S6</th>
+      <th>S7</th>
+      <th>S8</th>
+      <th>S9</th>
+      <th>S10</th>
+      <th>Rssi1</th>
+      <th>Rss2</th>
+      <th>Lmrv1</th>
+      <th>Lmrv2</th>
+      <th>Hmu1s</th>
+      <th>Hmu2s</th>
+      <th>Numoflinks</th>
+      <th>Deviceid</th>
+      <th>Ipaddr</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @s_samples.each do |s_sample| %>
+      <tr>
+        <td><%= s_sample.oid %></td>
+        <td><%= s_sample.s1 %></td>
+        <td><%= s_sample.s2 %></td>
+        <td><%= s_sample.s3 %></td>
+        <td><%= s_sample.s4 %></td>
+        <td><%= s_sample.s5 %></td>
+        <td><%= s_sample.s6 %></td>
+        <td><%= s_sample.s7 %></td>
+        <td><%= s_sample.s8 %></td>
+        <td><%= s_sample.s9 %></td>
+        <td><%= s_sample.s10 %></td>
+        <td><%= s_sample.rssi1 %></td>
+        <td><%= s_sample.rss2 %></td>
+        <td><%= s_sample.lmrv1 %></td>
+        <td><%= s_sample.lmrv2 %></td>
+        <td><%= s_sample.hmu1s %></td>
+        <td><%= s_sample.hmu2s %></td>
+        <td><%= s_sample.numoflinks %></td>
+        <td><%= s_sample.deviceID %></td>
+        <td><%= s_sample.ipaddr %></td>
+        <td><%= link_to 'Show', s_sample %></td>
+        <td><%= link_to 'Edit', edit_s_sample_path(s_sample) %></td>
+        <td><%= link_to 'Destroy', s_sample, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New S sample', new_s_sample_path %>

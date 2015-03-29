@@ -294,7 +294,8 @@ def snmp
     @device=nil
     
   @hbs.each do |device|
-    @snmp_sample=Snmp.new
+    params.require(:s_sample).permit(:oid, :s1, :s2, :s3, :s4, :s5, :s6, :s7, :s8, :s9, :s10, :rssi1, :rss2, :lmrv1, :lmrv2, :hmu1s, :hmu2s, :numoflinks, :deviceID, :ipaddr)
+    @snmp_sample=S_sample.new
     @device=device
     begin
        oids=Oid.where(:deviceID => 1)
@@ -335,7 +336,7 @@ def snmp
   
   end
   @snmp=@snmp_sample||Snmp.last
-  @snmps=Snmp.last(10)
+  @snmps=S_sample.last(10)
     
 end  
   
