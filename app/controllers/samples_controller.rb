@@ -1,6 +1,5 @@
 require 'net/telnet'
-require 'snmp'
-include SNMP
+
 
 class SamplesController < ApplicationController
   before_action :set_sample, only: [:show, :edit, :update, :destroy]
