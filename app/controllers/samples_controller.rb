@@ -1,5 +1,6 @@
 require 'net/telnet'
 require 'snmp'
+include 'SNMP'
 
 class SamplesController < ApplicationController
   before_action :set_sample, only: [:show, :edit, :update, :destroy]
@@ -295,7 +296,7 @@ def snmp
     
   @hbs.each do |device|
     params.require(:s_sample).permit(:oid, :s1, :s2, :s3, :s4, :s5, :s6, :s7, :s8, :s9, :s10, :rssi1, :rss2, :lmrv1, :lmrv2, :hmu1s, :hmu2s, :numoflinks, :deviceID, :ipaddr)
-    @snmp_sample=S_sample.new
+    @snmp_sample=SSample.new
     @device=device
     begin
        oids=Oid.where(:deviceID => 1)
@@ -336,7 +337,7 @@ def snmp
   
   end
   @snmp=@snmp_sample||Snmp.last
-  @snmps=S_sample.last(10)
+  @snmps=SSample.last(10)
     
 end  
   
