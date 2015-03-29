@@ -1,3 +1,4 @@
+require 'snmp'
 class SnmpsController < InheritedResources::Base
 
 def snmp
