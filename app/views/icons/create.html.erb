@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Width:</strong>
+  <%= @icon.width %>
+</p>
+
+<p>
+  <strong>Height:</strong>
+  <%= @icon.height %>
+</p>
+
+<p>
+  <strong>Alttext:</strong>
+  <%= @icon.altText %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @icon.url %>
+</p>
+
+<p>
+  <strong>Icon:</strong>
+  <%# image_tag @icon.icon.url
+   %>
+  
+   <img src="<%=@icon.icon.url %>" width="<%=@icon.width%>" height="<%=@icon.height%>" alt="<%=@icon.altText %>"  border="0"  />
+
+  <%# image_tag @icon.icon.url(:medium) 
+   %>
+  <%# image_tag @icon.iconurl(:thumb) 
+  %>
+</p>
+
+<%= link_to 'Edit', edit_icon_path(@icon) %> |
+<%= link_to 'Back', icons_path %> |
+<%= link_to 'New Icon', new_icon_path %>
+

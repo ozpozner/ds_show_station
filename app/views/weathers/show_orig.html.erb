@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Woeid:</strong>
+  <%= @weather.woeid %>
+</p>
+
+<p>
+  <strong>Temphigh:</strong>
+  <%= @weather.tempHigh %>
+</p>
+
+<p>
+  <strong>Templow:</strong>
+  <%= @weather.tempLow %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @weather.name %>
+</p>
+
+<p>
+  <strong>Fordate:</strong>
+  <%= @weather.fordate %>
+</p>
+
+<p>
+  <strong>Iconid:</strong>
+  <%= @weather.iconID %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @weather.title %>
+</p>
+
+<p>
+  <strong>Temp:</strong>
+  <%= @weather.temp %>
+</p>
+
+<p>
+  <strong>Condtext:</strong>
+  <%= @weather.condText %>
+</p>
+
+<%= link_to 'Edit', edit_weather_path(@weather) %> |
+<%= link_to 'Back', weathers_path %>

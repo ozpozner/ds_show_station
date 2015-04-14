@@ -1,0 +1,50 @@
+    <h2>Map</h2>
+    <div id="map" class="map"></div>
+    <script type="text/javascript">
+      var map = new ol.Map({
+        target: 'map',
+        layers:
+         [ new ol.layer.Tile({
+            source: new ol.source.MapQuest({layer: 'sat'})
+          })
+         ],
+         view: new ol.View({
+          center: ol.proj.transform([<%= '%.6f' % ((19.4445 + 19.34593)/2) %>, <%= '%.6f' % ((-99.1397+ -99.063892)/2) %>], 'EPSG:4326', 'EPSG:3857'),
+          zoom: 8
+        })
+      });
+      
+      var osm = new ol.Layer.OSM();
+
+	var graphic = new ol.Layer.Image(
+    'Image',
+   '/assets/450px-Mexico_City_Metro_line_8.svg.png',
+    new ol.Bounds(19.4445,-99.1397,19.34593,-99.063892),
+    new ol.Size(450,590),
+    {numZoomLevels: 3}
+	);
+
+	//map.addControl(new ol.Control.LayerSwitcher());
+	//map.addLayers([osm, graphic]);
+	//map.zoomToExtent(new ol.Bounds(19.4445,-99.1397,19.34593,-99.063892));
+      
+    </script>
+   
+
+<!---
+ <%#
+ 
+ [ new ol.layer.Image(
+            'Viewshed',
+            '/assets/450px-Mexico_City_Metro_line_8.svg.png',
+            new  OpenLayers.Bounds(19.4445,-99.1397,19.34593,-99.063892),
+            new OpenLayers.Size(450, 590),
+            { isBaseLayer: false,
+              opacity: 0.3,
+              displayOutsideMaxExtent: true
+            }
+          );
+         ]
+ 
+ %>
+-->

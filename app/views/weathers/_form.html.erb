@@ -1,0 +1,53 @@
+<%= form_for(@weather) do |f| %>
+  <% if @weather.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@weather.errors.count, "error") %> prohibited this weather from being saved:</h2>
+
+      <ul>
+      <% @weather.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :woeid %><br>
+    <%= f.text_field :woeid %>
+  </div>
+  <div class="field">
+    <%= f.label :tempHigh %><br>
+    <%= f.text_field :tempHigh %>
+  </div>
+  <div class="field">
+    <%= f.label :tempLow %><br>
+    <%= f.text_field :tempLow %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :fordate %><br>
+    <%= f.datetime_select :fordate %>
+  </div>
+  <div class="field">
+    <%= f.label :iconID %><br>
+    <%= f.number_field :iconID %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :temp %><br>
+    <%= f.number_field :temp %>
+  </div>
+  <div class="field">
+    <%= f.label :condText %><br>
+    <%= f.text_area :condText %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

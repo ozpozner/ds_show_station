@@ -1,0 +1,54 @@
+<h1>Listing icons</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>	
+      <th>Width</th>
+      <th>Height</th>
+      <th>Alttext</th>
+      <th>Url</th>
+      <th>Icon</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @icons.each do |icon| %>
+      <tr>
+      	<td><%= icon.id %></td>
+        <td><%= icon.width %></td>
+        <td><%= icon.height %></td>
+        <td><%= icon.altText %></td>
+        <td><%= icon.url %></td>
+		<td><%# image_tag(, height: '32', width: '32' , alt: icon.altText) 
+		    %>
+	        <img src="<%= icon.icon.url %>" width="16" height="16" alt="<%= icon.altText %>" onmouseover="fullImg<%=icon.id%>(this)" onmouseout="normalImg(this)" border="0"  />    	
+		</td>
+        <td><%= link_to 'Show', icon %></td>
+        <td><%= link_to 'Edit', edit_icon_path(icon) %></td>
+        <td><%= link_to 'Destroy', icon, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Icon', new_icon_path %>
+
+<script>
+ <% @icons.each do |icon| %>
+	function fullImg<%=icon.id%>(x) {
+    	x.style.height = "<%=icon.height%>px";
+    	x.style.width = "<%=icon.width%>px";
+	}
+
+<% end %>
+
+function normalImg(x) {
+    x.style.height = "16px";
+    x.style.width = "16px";
+}
+</script>
+

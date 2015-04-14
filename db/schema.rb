@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150329032934) do
+ActiveRecord::Schema.define(version: 20150414023316) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -46,6 +46,13 @@ ActiveRecord::Schema.define(version: 20150329032934) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
 
+  create_table "connections", force: true do |t|
+    t.integer  "stationID"
+    t.integer  "logoID"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "device_commands", force: true do |t|
     t.integer  "deviceType"
     t.string   "command"
@@ -73,6 +80,41 @@ ActiveRecord::Schema.define(version: 20150329032934) do
     t.datetime "updated_at"
   end
 
+  create_table "feed_entries", force: true do |t|
+    t.string   "name"
+    t.text     "summary"
+    t.string   "url"
+    t.datetime "published_at"
+    t.string   "guid"
+    t.string   "channel"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "icons", force: true do |t|
+    t.integer  "width"
+    t.integer  "height"
+    t.string   "altText"
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "icon_file_name"
+    t.string   "icon_content_type"
+    t.integer  "icon_file_size"
+    t.datetime "icon_updated_at"
+  end
+
+  create_table "markers", force: true do |t|
+    t.string   "name"
+    t.float    "lat"
+    t.float    "lon"
+    t.integer  "zoom"
+    t.integer  "iconID"
+    t.string   "href"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "myroutes", force: true do |t|
     t.string   "name"
     t.integer  "routeId"
@@ -88,6 +130,31 @@ ActiveRecord::Schema.define(version: 20150329032934) do
     t.integer  "deviceID"
     t.integer  "numRV"
     t.string   "returnType"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "s_samples", force: true do |t|
+    t.string   "oid"
+    t.string   "s1"
+    t.string   "s2"
+    t.string   "s3"
+    t.string   "s4"
+    t.string   "s5"
+    t.string   "s6"
+    t.string   "s7"
+    t.string   "s8"
+    t.string   "s9"
+    t.string   "s10"
+    t.string   "rssi1"
+    t.string   "rss2"
+    t.string   "lmrv1"
+    t.string   "lmrv2"
+    t.boolean  "hmu1s"
+    t.boolean  "hmu2s"
+    t.integer  "numoflinks"
+    t.integer  "deviceID"
+    t.string   "ipaddr"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -132,6 +199,30 @@ ActiveRecord::Schema.define(version: 20150329032934) do
     t.integer  "numoflinks"
     t.integer  "deviceID"
     t.string   "ipaddr"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "stations", force: true do |t|
+    t.string   "name"
+    t.float    "lan"
+    t.float    "lon"
+    t.integer  "numOfConnections"
+    t.integer  "iconID"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "weathers", force: true do |t|
+    t.string   "woeid"
+    t.string   "tempHigh"
+    t.string   "tempLow"
+    t.string   "name"
+    t.datetime "fordate"
+    t.integer  "iconID"
+    t.string   "title"
+    t.integer  "temp"
+    t.text     "condText"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

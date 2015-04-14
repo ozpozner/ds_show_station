@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  woeid: MyString
+  tempHigh: MyString
+  tempLow: MyString
+  name: MyString
+  fordate: 2015-04-13 06:25:10
+  iconID: 1
+  title: MyString
+  temp: 1
+  condText: MyText
+
+two:
+  woeid: MyString
+  tempHigh: MyString
+  tempLow: MyString
+  name: MyString
+  fordate: 2015-04-13 06:25:10
+  iconID: 1
+  title: MyString
+  temp: 1
+  condText: MyText

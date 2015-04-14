@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr" class="">
+<head>
+	<meta charset="UTF-8">	
+  <title>DsShowStation</title>
+    <%# stylesheet_link_tag    %>
+  <style>
+      .map {
+        height: 400px;
+        width: 100%;
+      };
+      
+      body {
+        margin: 0px;
+        padding: 0px;
+		overflow: hidden;
+      }
+  </style>
+    
+  <%# javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+
+</head>
+<body style="overflow: hidden; margin-top:1%">
+
+<%= yield %>
+
+</body>
+</html>

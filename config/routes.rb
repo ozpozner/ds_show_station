@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  resources :weathers
+
+  get 'banner/rss'
+
+  resources :connections
+
+  resources :icons
+
+  resources :stations
+
+  get 'map/index'
+  get 'map/weather'
+  get '/clock' => 'clock#show'
+  get '/banner' => 'banner#rss'
+  get 'stations/bulk'
+  resources :markers
+
   resources :s_samples
 
   resources :oids

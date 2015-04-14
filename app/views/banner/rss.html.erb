@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="description" content="jQuery News Ticker is a lightweight, stylish, easy to use and flexible jQuery news ticker" />
+	<style>
+	body {
+	background-color: forestgreen;
+	color:white;
+	font-size: 2em;
+	}
+	html {
+	}
+	
+	</style>
+</head>
+<body>
+
+    <marquee behavior="scroll" width="100%" direction="left">
+	<div>
+	 <% FeedEntry.last(20).each do |entry| %>
+	  <span>&nbsp<% entry.published_at.strftime("%H:%M")%>&nbsp<%= "    #{entry.name.html_safe}    " %>&nbsp&nbsp&nbsp</span>
+	  <% end %>	
+	</div>        </marquee>
+</body>
+</html>

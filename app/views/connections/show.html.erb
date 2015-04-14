@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Stationid:</strong>
+  <%= @connection.stationID %>
+</p>
+
+<p>
+  <strong>Logoid:</strong>
+  <%= @connection.logoID %>
+</p>
+
+<%= link_to 'Edit', edit_connection_path(@connection) %> |
+<%= link_to 'Back', connections_path %>

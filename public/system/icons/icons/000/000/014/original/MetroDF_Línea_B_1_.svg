@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="560"
+   height="560"
+   id="svg2"
+   sodipodi:version="0.32"
+   inkscape:version="0.48.3.1 r9886"
+   version="1.0"
+   sodipodi:docname="MetroDF_Línea_B.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+  <defs
+     id="defs4">
+    <metadata
+       id="CorelCorpID_0Corel-Layer" />
+    <style
+       id="style6"
+       type="text/css">
+   
+    .fil0 {fill:#969594}
+    .fil1 {fill:white}
+   
+  </style>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.76771593"
+     inkscape:cx="117.17936"
+     inkscape:cy="280"
+     inkscape:document-units="px"
+     inkscape:current-layer="g2259"
+     width="560px"
+     height="560px"
+     inkscape:window-width="1152"
+     inkscape:window-height="804"
+     inkscape:window-x="0"
+     inkscape:window-y="26"
+     showgrid="false"
+     inkscape:window-maximized="0"
+     showguides="true"
+     inkscape:guide-bbox="true" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>MetroDF_Línea B</dc:title>
+        <dc:date>19 marzo 2008</dc:date>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Sofree</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:publisher>
+          <cc:Agent>
+            <dc:title>Inkscape</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:description>Indicador de línea B del Metro de la Ciudad de México empleando típografía de licencia libre Bitstream Vera</dc:description>
+        <cc:license
+           rdf:resource="http://creativecommons.org/licenses/by/2.5/" />
+      </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/licenses/by/2.5/">
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/Reproduction" />
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/Distribution" />
+        <cc:requires
+           rdf:resource="http://web.resource.org/cc/Notice" />
+        <cc:requires
+           rdf:resource="http://web.resource.org/cc/Attribution" />
+        <cc:permits
+           rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g2259">
+      <g
+         id="g3228">
+        <text
+           xml:space="preserve"
+           style="font-size:72px;font-style:normal;font-weight:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:MetroDF"
+           x="89.383911"
+           y="305.37952"
+           id="SOFREE"><tspan
+             sodipodi:role="line"
+             id="tspan2246"
+             x="89.383911"
+             y="305.37952">sofree</tspan></text>
+        <rect
+           style="fill:#a9a9a9;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect2219"
+           width="560"
+           height="560"
+           x="0"
+           y="0"
+           ry="60" />
+        <path
+           id="rectanguloverde"
+           d="M 60.000009,0 C 26.760009,0 -1.25e-006,26.75999 -1.25e-006,59.99999 L -1.25e-006,292.03125 L 560,292.03125 L 560,59.99999 C 560,26.75999 533.24001,0 500,0 L 60.000009,0 z "
+           style="fill:#018c65;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-opacity:1" />
+      </g>
+      <text
+         id="text5168"
+         y="444.02588"
+         x="119.48975"
+         style="font-size:36px;font-style:normal;font-weight:normal;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           style="font-size:450px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
+           y="444.02588"
+           x="119.48975"
+           id="tspan5170"
+           sodipodi:role="line">B</tspan></text>
+    </g>
+    <g
+       inkscape:label="Capa 1"
+       id="g2244"
+       transform="translate(-620.71429,-24.040183)" />
+  </g>
+</svg>

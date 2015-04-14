@@ -45,3 +45,8 @@ group :development do
   gem "binding_of_caller"
 end
 gem 'snmp'
+gem "paperclip", "~> 4.2"
+gem "yahoo-weather"
+gem 'simple-rss'
+#gem 'htmlentities'
+gem "awesome_print"

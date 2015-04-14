@@ -1,0 +1,403 @@
+<!-- link rel="stylesheet" href="http://mexicometro.org/wp-content/themes/mexicometrov3/style.css" -->
+<style>
+	
+#station-nav {
+	position:absolute;
+	top:10px;
+	left:6px;
+	width:200px;
+	background: #ececec; /* Old browsers */
+	background: linear-gradient(to bottom, hsla(0,0%,93%,1) 0%,hsla(0,0%,100%,1) 70%); /* W3C */
+	border-top-left-radius: 0px;
+	border-top-right-radius: 25px;
+	border-bottom-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+}
+
+#station-nav li {
+	display:block;
+	min-height:28px;
+	border-bottom:1px solid #E5E5E5;
+	padding-left:05px;
+	vertical-align:middle;
+	position:relative;
+	font-size:100%;
+	margin-top:-2px
+}
+.blink {
+      animation: blink 1s steps(5, start) infinite;
+      -webkit-animation: blink 1s steps(5, start) infinite;
+    }
+    @keyframes blink {
+      to {
+        visibility: hidden;
+      }
+    }
+    @-webkit-keyframes blink {
+      to {
+        visibility: hidden;
+      }
+    }
+#station-nav a.station-link {
+	margin-left:15px;
+	text-decoration:none;
+	color:rgb(105, 105, 105);
+	position:absolute;
+	top:50%;
+	margin-top:-8px;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+	font-size:115%;
+}
+
+#station-nav a.station-link:hover {
+	text-decoration:underline;
+}
+
+.attachment-small-station-thumbnail {
+	box-shadow: none;
+}
+
+.station-thumbnail img {
+	box-shadow: none;
+	border: none;
+	border-radius: 0;
+}
+
+a.station-logo-link {
+	position:absolute;
+	top:50%;
+	margin-top:-9px;
+	margin-left:-10px
+}
+
+a.station-connections {
+	position:absolute;
+	top:50%;
+	margin-top:-9px;
+	margin-left:138px
+}
+
+a.station-connected1 {
+	position:absolute;
+	top:50%;
+	margin-top:-9px;
+	margin-left:160px
+}
+
+a.station-connected-1 {
+	position:absolute;
+	top:50%;
+	margin-top:-9px;
+	margin-left:116px
+}
+
+
+li #line-name, li #sidebar-first-link  {
+	font-size:22px;
+	/* height:30px;*/
+	padding-left:5px;
+	display:block;
+	padding-top:8px;
+	margin-left:-10px;
+	background-color: rgba(9, 150, 43, 0.95);
+	/* background-color:#d46618; */
+	padding-bottom:8px;
+	text-shadow: #000 1px 1px 2px;
+	font-weight:700;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 25px;
+	border-bottom-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+}
+
+li #line-name a, li #sidebar-first-link a {
+	text-decoration:none;
+	color:#fff;
+	margin-left:5px;
+	margin-top:-15px;
+}
+
+.current-station {
+	font-weight:bold;
+	
+	text-decoration:underline;
+}
+
+.next-station {
+	text-decoration: blink;
+	-webkit-text-stroke-width: 0.2px;
+    -webkit-text-stroke-color: #111;
+}
+
+.station-info {
+	width:650px;
+	margin-left:300px;
+	padding-right:50px;
+}
+
+.station-info p {
+	margin:20px 0px
+}
+
+.station-info h1 {
+    background-image: url("images/diagonal-bars.png");
+    font-size: 26px;
+    height: 40px;
+    padding-left: 10px;
+    width: 590px;
+    margin-bottom:35px;
+	text-shadow: #BAB5B5 3px 3px 4px;
+	font-family: MetroFont;
+}
+
+.station-thumbnail {
+    background-color: white;
+    height: 30px;
+    margin-left: 1px;
+    position: absolute;
+    right: 30px;
+    top: 50px;
+	 
+}
+	
+	ul, menu, dir {
+  display: block;
+  list-style-type: disc;
+  -webkit-margin-before: 0em;
+  -webkit-margin-after: 0em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  -webkit-padding-start: 5px;
+ }
+	
+.video {
+	position:absolute;
+	margin-top:0px;
+	margin-left:220px;
+}
+
+.rss {
+    position:absolute;
+	margin-top: 550px;
+	margin-left: 50px;
+	overflow: hidden;
+}
+
+.clock{
+    position:absolute;
+	margin-top: 550px;
+	margin-left: 850px;
+	overflow: hidden;
+}	
+</style>
+<div>
+<nav id="station-nav">
+<ul>
+<li><span id="line-name" style=""><a href="http://mexicometro.org/metro/line8/">Línea 8</a></span></li>
+	
+	<li>
+	<a class="station-logo-link" href="http://mexicometro.org/metro/line8/garibaldi/" title="Garibaldi">
+	<img src="/system/icons/icons/000/000/021/original/metro-garibaldi.png" class="attachment-small-station-thumbnail wp-post-image" alt="Garibaldi - Metro Line 8 and Line B" width="20" height="20" src-orig="http://i1.wp.com/mexicometro.org/wp-content/uploads/metro-garibaldi.png?resize=25%2C25" scale="1.5"></a>
+    
+	
+	<a class="station-link <%='current-station' if @current_station=="Garibaldi"%> <%='blink next-station' if @next_station=="Garibaldi"%>" href="http://mexicometro.org/metro/line8/garibaldi/">Garibaldi</a>
+  
+    <a class="station-connections"><img src="/system/icons/icons/000/000/015/original/arrows_1_.png?1427836130" width="20" height="20" alt="has connection to" border="0" style="height: 20px; width: 20px;"></a>
+	<a class="station-connected1"><img  src="/system/icons/icons/000/000/014/original/MetroDF_L%C3%ADnea_B_1_.svg?1427806593" width="20" height="16" alt="Line B" border="0" style="height: 20px; width: 20px;"></a>
+	</li>
+
+	
+	<li>
+
+	<a class="station-logo-link" href="http://mexicometro.org/metro/line8/bellas-artes/" title="Bellas Artes"><img src="/system/icons/icons/000/000/021/original/metro-bellasartes.png" class="attachment-small-station-thumbnail wp-post-image" alt="Bellas Artes - Metro Line 2 and Line 8" width="20" height="20" src-orig="http://i2.wp.com/mexicometro.org/wp-content/uploads/metro-bellasartes.png?resize=25%2C25" scale="1.5"></a>
+
+	<a class="station-link <%='current-station' if @current_station=="Bellas Artes"%>  <%='blink next-station' if @next_station=="Bellas Artes"%>" href="http://mexicometro.org/metro/line8/bellas-artes/">Bellas Artes</a>
+
+
+    <a class="station-connections"><img src="/system/icons/icons/000/000/015/original/arrows_1_.png?1427836130" width="20" height="20" alt="has connection to" border="0" style="height: 20px; width: 20px;"></a>
+	<a class="station-connected1"><img src="/system/icons/icons/000/000/017/original/84px-MetroDF_Linea_2.svg.png?1427838331" width="20" height="20" alt="line 2"  border="0" style="height: 20px; width: 20px;"></a>
+	</li>
+
+	
+	<li>
+
+	<a class="station-logo-link" href="http://mexicometro.org/metro/line8/san-juan-de-letran/" title="San Juan de Letrán"><img src="http://i2.wp.com/mexicometro.org/wp-content/uploads/metro-sanjuandeletran.png?zoom=1&amp;resize=20%2C20" class="attachment-small-station-thumbnail wp-post-image" alt="San Juan de Letrán - Line 8" width="20" height="20" src-orig="http://i2.wp.com/mexicometro.org/wp-content/uploads/metro-sanjuandeletran.png?resize=25%2C25" scale="1.5"></a>
+
+	<a class="station-link <%='current-station' if @current_station=="San Juan de Letrán"%> <%='blink next-station' if @next_station=="San Juan de Letrán"%>" href="http://mexicometro.org/metro/line8/san-juan-de-letran/">San Juan de Letrán</a>
+
+	</li>
+
+	
+	<li>
+
+	<a class="station-logo-link" href="http://mexicometro.org/metro/line8/salto-del-agua/" title="Salto del Agua"><img src="http://i1.wp.com/mexicometro.org/wp-content/uploads/metro-saltodelagua.png?zoom=1&amp;resize=20%2C20" class="attachment-small-station-thumbnail wp-post-image" alt="Salto del Agua - Metro Line 1 and Line 8" width="20" height="20" src-orig="http://i1.wp.com/mexicometro.org/wp-content/uploads/metro-saltodelagua.png?resize=25%2C25" scale="1.5"></a>
+
+	<a class="station-link" href="http://mexicometro.org/metro/line8/salto-del-agua/">Salto del Agua</a>
+	
+	
+	<a class="station-connections"><img src="/system/icons/icons/000/000/015/original/arrows_1_.png?1427836130" width="16" height="16" alt="has connection to" border="0" style="height: 20px; width: 20px;"></a>
+	<a class="station-connected1"><img src="/system/icons/icons/000/000/016/original/135px-STC_line_1_icon_1_.png?1427837808" width="16" height="16" alt="line 1" border="0" style="height: 20px; width: 20px;"></a>
+
+	</li>
+
+	
+	<li>
+
+	<a class="station-logo-link" href="http://mexicometro.org/metro/line8/doctores/" title="Doctores"><img src="http://i1.wp.com/mexicometro.org/wp-content/uploads/metro-doctores.png?zoom=1&amp;resize=20%2C20" class="attachment-small-station-thumbnail wp-post-image" alt="Doctores - Metro Line 8" width="20" height="20" src-orig="http://i1.wp.com/mexicometro.org/wp-content/uploads/metro-doctores.png?resize=25%2C25" scale="1.5"></a>
+
+	<a class="station-link" href="http://mexicometro.org/metro/line8/doctores/">Doctores</a>
+
+	</li>
+
+	
+	<li>
+
+	<a class="station-logo-link" href="http://mexicometro.org/metro/line8/obrera/" title="Obrera"><img src="http://i1.wp.com/mexicometro.org/wp-content/uploads/metro-obrera.png?zoom=1&amp;resize=20%2C20" class="attachment-small-station-thumbnail wp-post-image" alt="Obrera - Metro Line 8" width="20" height="20" src-orig="http://i1.wp.com/mexicometro.org/wp-content/uploads/metro-obrera.png?resize=25%2C25" scale="1.5"></a>
+
+	<a class="station-link" href="http://mexicometro.org/metro/line8/obrera/">Obrera</a>
+
+	</li>
+
+	
+	<li>
+
+	<a class="station-logo-link" href="http://mexicometro.org/metro/line8/chabacano/" title="Chabacano"><img src="http://i2.wp.com/mexicometro.org/wp-content/uploads/metro-chabacano.png?zoom=1&amp;resize=20%2C20" class="attachment-small-station-thumbnail wp-post-image" alt="Chabacano - Metro Line 2, Line 8 and Line 9" width="20" height="20" src-orig="http://i2.wp.com/mexicometro.org/wp-content/uploads/metro-chabacano.png?resize=25%2C25" scale="1.5"></a>
+
+	<a class="station-link" href="http://mexicometro.org/metro/line8/chabacano/">Chabacano</a>
+
+    <a class="station-connected-1"><img src="/system/icons/icons/000/000/015/original/arrows_1_.png?1427836130" width="20" height="20" alt="has connection to" border="0" style="height: 20px; width: 20px;"></a>
+	<a class="station-connections"><img src="/system/icons/icons/000/000/017/original/84px-MetroDF_Linea_2.svg.png?1427838331" width="20" height="20" alt="line 2"  border="0" style="height: 20px; width: 20px;"></a>
+    <a class="station-connected1"><img src="/system/icons/icons/000/000/019/original/45px-MetroDF_Linea_9.svg_1_.png?1427838783" width="20" height="20" alt="line 9" border="0" style="height: 20px; width: 20px;"></a>
+
+	</li>
+
+	
+	<li>
+
+	<a class="station-logo-link" href="http://mexicometro.org/metro/line8/la-viga/" title="La Viga"><img src="http://i0.wp.com/mexicometro.org/wp-content/uploads/metro-laviga.png?zoom=1&amp;resize=20%2C20" class="attachment-small-station-thumbnail wp-post-image" alt="La Viga - Metro Line 8" width="20" height="20" src-orig="http://i0.wp.com/mexicometro.org/wp-content/uploads/metro-laviga.png?resize=25%2C25" scale="1.5"></a>
+
+	<a class="station-link" href="http://mexicometro.org/metro/line8/la-viga/">La Viga</a>
+
+	</li>
+
+	
+	<li>
+
+	<a class="station-logo-link" href="http://mexicometro.org/metro/line8/santa-anita/" title="Santa Anita"><img src="http://i2.wp.com/mexicometro.org/wp-content/uploads/metro-santaanita.png?zoom=1&amp;resize=20%2C20" class="attachment-small-station-thumbnail wp-post-image" alt="Santa Anita - Metro Line 4 and Line 8" width="20" height="20" src-orig="http://i2.wp.com/mexicometro.org/wp-content/uploads/metro-santaanita.png?resize=25%2C25" scale="1.5"></a>
+
+	<a class="station-link" href="http://mexicometro.org/metro/line8/santa-anita/">Santa Anita</a>
+
+
+    <a class="station-connections"><img src="/system/icons/icons/000/000/015/original/arrows_1_.png?1427836130" width="16" height="16" alt="has connection to" border="0" style="height: 20px; width: 20px;"></a>
+	<a class="station-connected1"> <img src="/system/icons/icons/000/000/018/original/45px-MetroDF_Linea_4.svg_1_.png?1427838699" width="20" height="20" alt="line 4" border="0" style="height: 20px; width: 20px;"></a>
+	</li>
+
+	
+	<li>
+
+	<a class="station-logo-link" href="http://mexicometro.org/metro/line8/coyuya/" title="Coyuya"><img src="http://i2.wp.com/mexicometro.org/wp-content/uploads/metro-coyuya.png?zoom=1&amp;resize=20%2C20" class="attachment-small-station-thumbnail wp-post-image" alt="Coyuya - Metro Line 8" width="20" height="20" src-orig="http://i2.wp.com/mexicometro.org/wp-content/uploads/metro-coyuya.png?resize=25%2C25" scale="1.5"></a>
+
+	<a class="station-link" href="http://mexicometro.org/metro/line8/coyuya/">Coyuya</a>
+
+	</li>
+
+	
+	<li>
+
+	<a class="station-logo-link" href="http://mexicometro.org/metro/line8/iztacalco/" title="Iztacalco"><img src="http://i0.wp.com/mexicometro.org/wp-content/uploads/metro-iztacalco.png?zoom=1&amp;resize=20%2C20" class="attachment-small-station-thumbnail wp-post-image" alt="Iztacalco - Metro Line 8" width="20" height="20" src-orig="http://i0.wp.com/mexicometro.org/wp-content/uploads/metro-iztacalco.png?resize=25%2C25" scale="1.5"></a>
+
+	<a class="station-link" href="http://mexicometro.org/metro/line8/iztacalco/">Iztacalco</a>
+
+	</li>
+
+	
+	<li>
+
+	<a class="station-logo-link" href="http://mexicometro.org/metro/line8/apatlaco/" title="Apatlaco"><img src="http://i0.wp.com/mexicometro.org/wp-content/uploads/metro-apatlaco.png?zoom=1&amp;resize=20%2C20" class="attachment-small-station-thumbnail wp-post-image" alt="Apatlaco - Metro Line 8" width="20" height="20" src-orig="http://i0.wp.com/mexicometro.org/wp-content/uploads/metro-apatlaco.png?resize=25%2C25" scale="1.5"></a>
+
+	<a class="station-link" href="http://mexicometro.org/metro/line8/apatlaco/">Apatlaco</a>
+   </li>
+
+	
+	<li>
+
+	<a class="station-logo-link" href="http://mexicometro.org/metro/line8/aculco/" title="Aculco"><img src="http://i0.wp.com/mexicometro.org/wp-content/uploads/metro-aculco.png?zoom=1&amp;resize=20%2C20" class="attachment-small-station-thumbnail wp-post-image" alt="Aculco - Metro Line 8" width="20" height="20" src-orig="http://i0.wp.com/mexicometro.org/wp-content/uploads/metro-aculco.png?resize=25%2C25" scale="1.5"></a>
+
+	<a class="station-link" href="http://mexicometro.org/metro/line8/aculco/">Aculco</a>
+
+	</li>
+
+	
+	<li>
+
+	<a class="station-logo-link" href="http://mexicometro.org/metro/line8/escuadron-201/" title="Escuadrón 201"><img src="http://i1.wp.com/mexicometro.org/wp-content/uploads/metro-escuadron201.png?zoom=1&amp;resize=20%2C20" class="attachment-small-station-thumbnail wp-post-image" alt="Escuadrón 201 - Metro Line 8" width="20" height="20" src-orig="http://i1.wp.com/mexicometro.org/wp-content/uploads/metro-escuadron201.png?resize=25%2C25" scale="1.5"></a>
+
+	<a class="station-link" href="http://mexicometro.org/metro/line8/escuadron-201/">Escuadrón 201</a>
+
+	</li>
+
+	
+	<li>
+
+	<a class="station-logo-link" href="http://mexicometro.org/metro/line8/atlalilco/" title="Atlalilco"><img src="http://i1.wp.com/mexicometro.org/wp-content/uploads/metro-atlalilco.png?zoom=1&amp;resize=20%2C20" class="attachment-small-station-thumbnail wp-post-image" alt="Atlalilco - Metro Line 8 and Line 12" width="20" height="20" src-orig="http://i1.wp.com/mexicometro.org/wp-content/uploads/metro-atlalilco.png?resize=25%2C25" scale="1.5"></a>
+
+	<a class="station-link" href="http://mexicometro.org/metro/line8/atlalilco/">Atlalilco</a>
+    <a class="station-connections"><img src="/system/icons/icons/000/000/015/original/arrows_1_.png?1427836130" width="16" height="16" alt="has connection to" border="0" style="height: 20px; width: 20px;"></a>
+	<a class="station-connected1"><img src="/system/icons/icons/000/000/020/original/45px-MetroDF_Linea_12_1_.png?1427838852" width="20" height="20" alt="line 12" border="0" style="height: 20px; width: 20px;"> </a> 
+	
+	</li>
+
+	
+	<li>
+
+	<a class="station-logo-link" href="http://mexicometro.org/metro/line8/iztapalapa/" title="Iztapalapa"><img src="http://i2.wp.com/mexicometro.org/wp-content/uploads/metro-iztapalapa.png?zoom=1&amp;resize=20%2C20" class="attachment-small-station-thumbnail wp-post-image" alt="Iztapalapa - Metro Line 8" width="20" height="20" src-orig="http://i2.wp.com/mexicometro.org/wp-content/uploads/metro-iztapalapa.png?resize=25%2C25" scale="1.5"></a>
+
+	<a class="station-link" href="http://mexicometro.org/metro/line8/iztapalapa/">Iztapalapa</a>
+
+	</li>
+
+	
+	<li>
+
+	<a class="station-logo-link" href="http://mexicometro.org/metro/line8/cerro-de-la-estrella/" title="Cerro de la Estrella"><img src="http://i1.wp.com/mexicometro.org/wp-content/uploads/metro-cerrodelaestrella.png?zoom=1&amp;resize=20%2C20" class="attachment-small-station-thumbnail wp-post-image" alt="Cerro de la Estrella - Metro Line 8" width="20" height="20" src-orig="http://i1.wp.com/mexicometro.org/wp-content/uploads/metro-cerrodelaestrella.png?resize=25%2C25" scale="1.5"></a>
+
+	<a class="station-link" href="http://mexicometro.org/metro/line8/cerro-de-la-estrella/">Cerro de la Estrella</a>
+
+	</li>
+
+	
+	<li>
+
+	<a class="station-logo-link" href="http://mexicometro.org/metro/line8/uam-i/" title="UAM-I"><img src="http://i1.wp.com/mexicometro.org/wp-content/uploads/metro-uami.png?zoom=1&amp;resize=20%2C20" class="attachment-small-station-thumbnail wp-post-image" alt="UAM-I - Metro Line 8" width="20" height="20" src-orig="http://i1.wp.com/mexicometro.org/wp-content/uploads/metro-uami.png?resize=25%2C25" scale="1.5"></a>
+
+	<a class="station-link" href="http://mexicometro.org/metro/line8/uam-i/">UAM-I</a>
+
+	</li>
+
+	
+	<li>
+
+	<a class="station-logo-link" href="http://mexicometro.org/metro/line8/constitucion-de-1917/" title="Constitución de 1917"><img src="http://i2.wp.com/mexicometro.org/wp-content/uploads/metro-constitucionde1917.png?zoom=1&amp;resize=20%2C20" class="attachment-small-station-thumbnail wp-post-image" alt="Constitución de 1917 - Metro Line 8" width="20" height="20" src-orig="http://i2.wp.com/mexicometro.org/wp-content/uploads/metro-constitucionde1917.png?resize=25%2C25" scale="1.5"></a>
+
+	<a class="station-link" href="http://mexicometro.org/metro/line8/constitucion-de-1917/">Constitución de 1917</a>
+
+	</li>
+
+	
+</ul>
+</nav>
+</div>
+<div class="video" border="0" style="overflow:hidden;">
+<video height="550" width="95%" loop autoplay >
+  <source src="/assets/video.mp4" type="video/mp4">
+  <!-- source src="movie.ogg" type="video/ogg" -->
+  Your browser does not support the video tag.
+</video>
+</div>
+<div class="rss"  style=" z-index: -100; left:-8% top:4%; overflow: hidden;">
+<iframe title="RSS ticker" width="600" height="3%"   src="http://192.168.1.211:3030/banner" frameborder="0" allowfullscreen></iframe>
+</div>
+<div class="clock" style="overflow: hidden;">
+<!-- iframe src="http://free.timeanddate.com/clock/i4m0lxc4/n676/tlmx4/fn2/fs32/ftb/tt0/tw0/tm1/tb4" frameborder="0" width="332" height="92"></iframe -->
+<iframe src="http://192.168.1.211:3030/clock" frameborder="0" width="332" height="92"></iframe -->
+</div>
