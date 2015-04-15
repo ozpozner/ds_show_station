@@ -7,4 +7,20 @@
 </span><span style="font-size:0.7em">
   <strong>Máx: </strong><b><%= @resp.tempHigh %><sup>oc</sup></b>
 </span>
+<script type="text/javascript">
+function pingandreload(){
+var ImageObject = new Image();
+ImageObject.src = "http://192.168.1.211:3030/images/weather/1.gif";
 
+if(ImageObject.height>0){
+  console.log('The domain is available.');
+  location.reload(true);
+  
+} else {
+  window.setInterval("pingandreload()", 600000);
+}
+  
+};
+window.onchange=pingandreload();
+window.setInterval("pingandreload()", 300000); 
+</script>

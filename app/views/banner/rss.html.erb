@@ -22,5 +22,40 @@
 	  <span>&nbsp<% entry.published_at.strftime("%H:%M")%>&nbsp<%= "    #{entry.name.html_safe}    " %>&nbsp&nbsp&nbsp</span>
 	  <% end %>	
 	</div>        </marquee>
+	
+	<script type="text/javascript">
+function pingandreload(){
+var ImageObject = new Image();
+ImageObject.src = "http://192.168.1.211:3030/images/weather/1.gif";
+
+if(ImageObject.height>0){
+  console.log('The domain is available.');
+  location.reload(true);
+  
+} else {
+  window.setInterval("pingandreload()", 600000);
+}
+  
+};
+
+ function getResponse()
+            {
+                var uname=document.testform.uname.value;
+
+                $.ajax({
+                type: 'POST',
+                url: 'http://192.168.1.211:3030/banners/refresh',
+                data: {},
+                dataType: 'json',
+                success: function(data) 
+                { console.log('got here with data'); },
+                error: function() { console.log('something bad happened'); }
+                });
+
+            }
+
+window.onchange=pingandreload();
+window.setInterval("pingandreload()", 300000); 
+</script>
 </body>
 </html>

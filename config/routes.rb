@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get 'map/weather'
   get '/clock' => 'clock#show'
   get '/banner' => 'banner#rss'
+  post '/banner/refresh' => 'banner#refresh'
+  get '/banner/refresh' => 'banner#refresh'
   get 'stations/bulk'
   resources :markers
 

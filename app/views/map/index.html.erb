@@ -1,4 +1,16 @@
 <!-- link rel="stylesheet" href="http://mexicometro.org/wp-content/themes/mexicometrov3/style.css" -->
+<div id="topmargin" style="display: none;"><img src="/system/icons/icons/000/000/041/original/rad_logo.jpg?1429061899"  height="100" alt="rad logo" border="0"></div>
+<script>
+ function setTopMargin(){
+	if(window.innerWidth == screen.width && window.innerHeight == screen.height) {
+		 document.getElementById('topmargin').style.display='block';
+		} else {
+ 		 document.getElementById('topmargin').style.display='none'
+	}	
+  };
+
+   window.onchange=setTopMargin();
+</script>
 <style>
 	
 #station-nav {
@@ -24,9 +36,7 @@
 	font-size:100%;
 	margin-top:-2px
 }
-.body {
- max-width:1200px;
- }
+
 .blink {
       animation: blink 1s steps(5, start) infinite;
       -webkit-animation: blink 1s steps(5, start) infinite;
@@ -245,4 +255,11 @@ li #line-name a, li #sidebar-first-link a {
       src="http://192.168.1.211:3030/clock"
    <%# end %>
    style="overflow:hidden;" frameborder="0" width="332" height="92"></iframe>
+</div>
+<hr>
+<div id="radlogo">
+<marquee behavior="scroll" direction="left">
+<img src="/system/icons/icons/000/000/041/original/rad_logo.jpg?1429061899"  height="50" alt="Logo" />
+<p>Demo System Provided by MEI </p>
+</marquee>
 </div>

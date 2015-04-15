@@ -1,3 +1,4 @@
+#require "awesome_print"
 class WeathersController < InheritedResources::Base
   layout false
   
@@ -7,10 +8,7 @@ def show
     @resp = Weather.new
 	@resp.fordate = Date.today
  end 
- if @resp.id==1
-   @resp.name = "/images/weather/28.gif"
-   @resp.save   
- end
+
  begin
  @client = YahooWeather::Client.new
  # look up WOEID via http://weather.yahoo.com; enter location by city
@@ -42,9 +40,11 @@ def show
    when "C--"
      puts 'You need help!!!'
    else
-      puts "not defined-#{response.condition.code}"
+      #puts "not defined-#{response.condition.code}"
 	 # @imgSrc = "#{response.image.url}"
 	 @imgSrc = @resp.name
+	 ap @resp
+   #ap response
  end
  @resp.save
  rescue
