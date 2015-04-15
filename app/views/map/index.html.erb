@@ -239,12 +239,12 @@ li #line-name a, li #sidebar-first-link a {
 </video>
 </div>
 <div class="weather" style=" z-index: -100; left:0%; margin-top:562px; width:15%; font-size:200%; overflow: hidden;">
-<iframe title="weather" width="100%" src="http://192.168.1.211:3030/weathers/1"
- frameborder="0" noscrolling allowfullscreen style="overflow:hidden; height:100px;"></iframe>
+<iframe title="weather" width="100%" src="/weathers/1"
+ frameborder="0" noscrolling allowfullscreen style="overflow:hidden; height:80px;"></iframe>
 </div>
-<div class="rss"  style=" z-index: -100; left:9%; top:25px; width:74%; font-size:200%; overflow: hidden;">
+<div class="rss"  style=" z-index: -100; left:15%; top:25px; width:69%; font-size:200%; overflow: hidden;">
 <iframe title="RSS ticker" width="100%"   
-      src="http://192.168.1.211:3030/banner"
+      src="/banner"
       frameborder="0" noscrolling allowfullscreen style="overflow:hidden; height:60px;"></iframe>
 </div>
 <div class="clock" style=" z-index: -100; left:+10%; top:20px; width:25%; font-size:200%; overflow: hidden;">
@@ -252,14 +252,13 @@ li #line-name a, li #sidebar-first-link a {
    <%# if @online %>
    <%#   src="http://free.timeanddate.com/clock/i4m0lxc4/n676/tlmx4/fn2/fs32/ftb/tt0/tw0/tm1/tb4" %>
    <%# else %>
-      src="http://192.168.1.211:3030/clock"
+      src="/clock"
    <%# end %>
    style="overflow:hidden;" frameborder="0" width="332" height="92"></iframe>
 </div>
-<hr>
 <div id="radlogo">
 <marquee behavior="scroll" direction="left">
-<img src="/system/icons/icons/000/000/041/original/rad_logo.jpg?1429061899"  height="50" alt="Logo" />
+<p><img src="/system/icons/icons/000/000/041/original/rad_logo.jpg?1429061899"  height="50" alt="RAD" /><img src="/system/icons/icons/000/000/041/original/rad_logo.jpg?1429061899"  height="50" alt="Bynet" /></p>
 <p>Demo System Provided by MEI </p>
 </marquee>
 </div>
