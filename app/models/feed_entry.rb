@@ -4,9 +4,9 @@ def self.update_from_feed(feed_url)
   # feed = Feedzirra::Feed.fetch_and_parse(feed_url)
   feed = SimpleRSS.parse open(feed_url)
   feed.entries.each do |entry|
-    unless exists?(:name => entry.title.to_s.force_encoding('UTF-8') , :channel => feed.channel.link.to_s.force_encoding('UTF-8'))
+    unless exists?(:name => CGI.unescapeHTML(entry.title.to_s.force_encoding('UTF-8')) , :channel => feed.channel.link.to_s.force_encoding('UTF-8'))
       create!(
-        :name         => entry.title.to_s.force_encoding('UTF-8'),
+        :name         => CGI.unescapeHTML(entry.title.to_s.force_encoding('UTF-8')),
         :summary      => entry.description.to_s.force_encoding('UTF-8'),
         :url          => entry.link.to_s.force_encoding('UTF-8'),
         :published_at => entry.pubDate,

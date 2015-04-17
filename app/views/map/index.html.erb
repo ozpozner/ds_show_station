@@ -312,9 +312,11 @@ li #line-name a, li #sidebar-first-link a {
 		  		} else {
 		  		nextStationId = nextStationId	-1;	
 		  		};
+		    if (nextStationId == 19 ) {nextStationId = 18; window.direction = "e2s"; params["direction"] = "e2s";};
+		    if (nextStationId == -1 ) {nextStationId = 0; window.direction = "s2e" ; params["direction"] = "s2e";};
 		    nextStation = 	stations[nextStationId].id;
 		  
-		  } else {
+		  } else { //current station <> ""
 		  	setTimeout("updateStations()",stations[nextStationId].timeout_next);
 		  	currentStation = "";
 		  	params["currentStation"] = null;
@@ -322,8 +324,8 @@ li #line-name a, li #sidebar-first-link a {
 		  	
 		  } ;
 		  
-		  if (nextStationId == -1 ) {nextStationId = 0; window.direction = "s2e" ; params["direction"] = "s2e";  }
-		  if (nextStationId == 19 ) {nextStationId = 18; window.direction = "e2s"; params["direction"] = "e2s";}
+		    
+		
 		  updateStationsClass( currentStation, nextStation); 
 		}
         console.log( "current Station:"+ currentStation + " next Station["+ nextStationId +"]"+nextStation );

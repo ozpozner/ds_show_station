@@ -19,7 +19,7 @@
     <marquee behavior="scroll" width="100%" direction="left">
 	<div>
 	 <% FeedEntry.last(20).each do |entry| %>
-	  <span>&nbsp<% entry.published_at.strftime("%H:%M")%>&nbsp<%= "    #{entry.name.html_safe}    " %>&nbsp&nbsp&nbsp</span>
+	  <span>&nbsp<% entry.published_at.strftime("%H:%M")%>&nbsp&nbsp<%=raw "#{entry.name.html_safe} " %>&nbsp&nbsp&nbsp</span>
 	  <% end %>	
 	</div>        </marquee>
 	
