@@ -31,21 +31,8 @@ def show
  @resp.tempHigh = "#{response.forecasts[0].high}"
  @resp.tempLow =  "#{response.forecasts[0].low}"
  @resp.name = "/images/weather/#{response.condition.code||3200}.gif" 
+ @resp.iconID =  "#{response.condition.code}".to_i
  @imgSrc = @resp.name
- case response
-   when "ND- Smoky"
-     puts 'Well done!'
-   when "B--"
-     puts 'Try harder!'
-   when "C--"
-     puts 'You need help!!!'
-   else
-      #puts "not defined-#{response.condition.code}"
-	 # @imgSrc = "#{response.image.url}"
-	 @imgSrc = @resp.name
-	 ap @resp
-   #ap response
- end
  @resp.save
  rescue
    puts $!

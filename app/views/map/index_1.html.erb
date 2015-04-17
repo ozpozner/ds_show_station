@@ -17,7 +17,7 @@
 	position:absolute;
 	top:10px;
 	left:6px;
-	width:210px;
+	width:200px;
 	background: #ececec; /* Old browsers */
 	background: linear-gradient(to bottom, hsla(0,0%,93%,1) 0%,hsla(0,0%,100%,1) 70%); /* W3C */
 	border-top-left-radius: 0px;
@@ -87,14 +87,14 @@ a.station-connections {
 	position:absolute;
 	top:50%;
 	margin-top:-9px;
-	margin-left:144px
+	margin-left:138px
 }
 
 a.station-connected1 {
 	position:absolute;
 	top:50%;
 	margin-top:-9px;
-	margin-left:164px
+	margin-left:160px
 }
 
 a.station-connected-1 {
@@ -203,8 +203,6 @@ li #line-name a, li #sidebar-first-link a {
 	overflow: hidden;
 }	
 </style>
-
-
 <div>
 <nav id="station-nav">
 <ul>
@@ -215,7 +213,7 @@ li #line-name a, li #sidebar-first-link a {
 	<a class="station-logo-link" href="http://mexicometro.org/metro/line8/<%="#{station.name}".html_safe%>/" title="<%="#{station.name}".html_safe%>">
 	<img src="<%= Icon.find(station.iconID).icon.url %>" class="attachment-small-station-thumbnail wp-post-image" alt="<%="#{station.name}"%>" width="20" height="20" scale="1.5"></a>
     
-	<a id="<%= station.name %>" class="station-link <%='current-station' if @current_station==station.name %> <%='blink next-station' if @next_station==station.name %>" href="/metro/line8/<%= station.name %>/"><%=station.name.html_safe%></a>
+	<a class="station-link <%='current-station' if @current_station==station.name %> <%='blink next-station' if @next_station==station.name %>" href="http://mexicometro.org/metro/line8/<%= station.name %>/"><%=station.name.html_safe%></a>
     <% if  station.numOfConnections == 1 %>
       <a class="station-connections"><img src="/system/icons/icons/000/000/015/original/arrows_1_.png?1427836130" width="20" height="20" alt="has connection to" border="0" style="height: 20px; width: 20px;"></a>
 	  <a class="station-connected1"><img  src="<%= Icon.find(Connection.find_by_stationID(station.id).logoID).icon.url %>" width="20" height="16" alt="Line B" border="0" style="height: 20px; width: 20px;"></a>
@@ -232,114 +230,6 @@ li #line-name a, li #sidebar-first-link a {
 	
 </ul>
 </nav>
-
-
-        <script>
-       // window.gon = {};
-       // gon.products=[{"created_at":"2012-02-18T20:24:45Z","id":1,"name":"Settlers of Catan","price":"29.95","updated_at":"2012-02-18T20:24:45Z"},
-       //               {"created_at":"2012-02-18T20:24:45Z","id":2,"name":"DVD Player","price":"79.98999999999999","updated_at":"2012-02-18T20:24:45Z"},
-       //               {"created_at":"2012-02-18T20:24:45Z","id":3,"name":"Red Shirt","price":"12.49","updated_at":"2012-02-18T20:24:45Z"}
-       //               ];
-       window.stations = {};
-       window.currentStation = null;
-       window.nextStation = null;
-       window.nextStationId = 0;
-       stations = [
-         <% index=0 %>
-         <% @st.each do |station|  %>
-         <% index+=1 %> 
-         {<%= "\"id\":\"#{station.name}\",\"name\":\"#{station.name}\" , \"timeout_station\":5000, \"timeout_next\":10000 ".html_safe %>}
-         <%= "," unless index==@st.count %>
-         <% end %>
-       	];
-       </script>
-
-
-   <script>
-
-    function updateStationsClass( currentStation, nextStation) {
-       	
-       	for ( var i = 0; i < <%= @st.count -1 %> ; i++) {
-       	  var newclass = "station-link"	
-	        stations[i].id ==currentStation ? newclass = newclass + " current-station" : '';   
-	        stations[i].id ==nextStation ? newclass = newclass + " blink next-station" : '';
-	        document.getElementById(stations[i].id).className = newclass;
-	      //  console.log("setting element by id: "+stations[i].id+" to class: "+newclass);
-	       // $().attr("class",newclass);
-	        }
-    	 }	
-    
-  function getSearchParameters() {
-      var prmstr = window.location.search.substr(1);
-      return prmstr != null && prmstr != "" ? transformToAssocArray(prmstr) : {};
-    }
-
-  function transformToAssocArray( prmstr ) {
-	    var params = {};
-	    var prmarr = prmstr.split("&");
-	    for ( var i = 0; i < prmarr.length; i++) {
-	        var tmparr = prmarr[i].split("=");
-	        params[tmparr[0]] = tmparr[1];
-	    }
-	    return params;
-	}
-
-	var params = getSearchParameters();
-	if (params["direction"]  != null  ) {
-		window.direction = params["direction"];
-	} else {
-		window.direction = "s2e";
-		params[direction] = "s2e";
-	};	
-	function updateStations() {
-	  try {
-    
-
-		//TODO: add direction
-		if (nextStation == null ){
-		  currentStation = params["currentStation"] != null ?  params["currentStation"] : stations[0].id;  
-		  nextStation = params["nextStation"] != null ?  params["nextStation"] : stations[1].id;
-		  nextStationId = 1;
-		   updateStationsClass( currentStation, nextStation);
-		} else {
-		  if (currentStation == "" ) {
-		  	currentStation = stations[nextStationId].id;
-		  	setTimeout("updateStations()",stations[nextStationId].timeout_station);
-		  	params["currentStation"] = currentStation;
-		  	 
-		  	if (direction == "s2e") { 
-		  		nextStationId = nextStationId	+ 1;
-		  		} else {
-		  		nextStationId = nextStationId	-1;	
-		  		};
-		    nextStation = 	stations[nextStationId].id;
-		  
-		  } else {
-		  	setTimeout("updateStations()",stations[nextStationId].timeout_next);
-		  	currentStation = "";
-		  	params["currentStation"] = null;
-		  	nextStation = 	stations[nextStationId].id;
-		  	
-		  } ;
-		  
-		  if (nextStationId == -1 ) {nextStationId = 0; window.direction = "s2e" ; params["direction"] = "s2e";  }
-		  if (nextStationId == 19 ) {nextStationId = 18; window.direction = "e2s"; params["direction"] = "e2s";}
-		  updateStationsClass( currentStation, nextStation); 
-		}
-        console.log( "current Station:"+ currentStation + " next Station["+ nextStationId +"]"+nextStation );
-         
-     }
-     catch(err) {
-       console.log( err.message);
-     }	
-
-// end of function
-	}
-	document.addEventListener("DOMContentLoaded", function() {
-       updateStations(); 
-    });
-        updateStations();
-</script>
 </div>
 <div class="video" border="0" style="overflow:hidden; margin-top:15px; top:0%;  position:absolute">
 <video height="550" width="95%" loop autoplay style="border:1px;">
