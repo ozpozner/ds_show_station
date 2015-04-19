@@ -1,0 +1,30 @@
+
+Pinging 192.168.1.234 with 32 bytes of data:
+Request timed out.
+Request timed out.
+Request timed out.
+Request timed out.
+Request timed out.
+
+Ping statistics for 192.168.1.234:
+    Packets: Sent = 5, Received = 0, Lost = 5 (100% loss),
+
+Pinging 192.168.1.234 with 32 bytes of data:
+Reply from 10.10.22.111: Destination host unreachable.
+Reply from 10.10.22.111: Destination host unreachable.
+Reply from 10.10.22.111: Destination host unreachable.
+Reply from 10.10.22.111: Destination host unreachable.
+Reply from 10.10.22.111: Destination host unreachable.
+
+Ping statistics for 192.168.1.234:
+    Packets: Sent = 5, Received = 5, Lost = 0 (0% loss),
+
+Pinging 192.168.1.234 with 32 bytes of data:
+Reply from 10.10.22.111: Destination host unreachable.
+Reply from 10.10.22.111: Destination host unreachable.
+Reply from 10.10.22.111: Destination host unreachable.
+Reply from 10.10.22.111: Destination host unreachable.
+Reply from 10.10.22.111: Destination host unreachable.
+
+Ping statistics for 192.168.1.234:
+    Packets: Sent = 5, Received = 5, Lost = 0 (0% loss),

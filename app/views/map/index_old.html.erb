@@ -17,7 +17,7 @@
 	position:absolute;
 	top:10px;
 	left:6px;
-	width:256px;
+	width:210px;
 	background: #ececec; /* Old browsers */
 	background: linear-gradient(to bottom, hsla(0,0%,93%,1) 0%,hsla(0,0%,100%,1) 70%); /* W3C */
 	border-top-left-radius: 0px;
@@ -28,7 +28,7 @@
 
 #station-nav li {
 	display:block;
-	min-height:32px;
+	min-height:28px;
 	border-bottom:1px solid #E5E5E5;
 	padding-left:05px;
 	vertical-align:middle;
@@ -57,9 +57,9 @@
 	color:rgb(105, 105, 105);
 	position:absolute;
 	top:50%;
-	margin-top:-9px;
+	margin-top:-8px;
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, "Lucida Grande", "Lucida Sans", Arial, sans-serif;
-	font-size:140%;
+	font-size:115%;
 }
 
 #station-nav a.station-link:hover {
@@ -87,28 +87,28 @@ a.station-connections {
 	position:absolute;
 	top:50%;
 	margin-top:-9px;
-	margin-left:194px
+	margin-left:144px
 }
 
 a.station-connected1 {
 	position:absolute;
 	top:50%;
 	margin-top:-9px;
-	margin-left:215px
+	margin-left:164px
 }
 
 a.station-connected-1 {
 	position:absolute;
 	top:50%;
 	margin-top:-9px;
-	margin-left:165px
+	margin-left:116px
 }
 
 
 li #line-name, li #sidebar-first-link  {
-	font-size:2em;
+	font-size:22px;
 	/* height:30px;*/
-	padding-left:20px;
+	padding-left:5px;
 	display:block;
 	padding-top:8px;
 	margin-left:-10px;
@@ -185,24 +185,15 @@ li #line-name a, li #sidebar-first-link a {
 	
 .video {
 	position:absolute;
-	margin-top:5px;
-	margin-left:260px;
+	margin-top:0px;
+	margin-left:220px;
 }
 
 .rss {
     position:absolute;
 	margin-top: 550px;
-	margin-left: 65px;
+	margin-left: 5px;
 	overflow: hidden;
-}
-
-.weather {
-    display: none;
-    position:absolute;
-	margin-top: 550px;
-	margin-left: 950px;
-	overflow: hidden;
-	z-index: -60;
 }
 
 .clock{
@@ -210,23 +201,7 @@ li #line-name a, li #sidebar-first-link a {
 	margin-top: 550px;
 	margin-left: 850px;
 	overflow: hidden;
-}
-
-.rss {
-    position:absolute;
-	margin-top: 550px;
-	margin-left: 70px;
-	overflow: hidden;
-}
-
-.radlogo {
-    position:absolute;
-	margin-top: 550px;
-	margin-left: 5px;
-	width: 100%;
-	overflow: hidden;
-}
-	
+}	
 </style>
 
 
@@ -238,7 +213,7 @@ li #line-name a, li #sidebar-first-link a {
 	 <% @st.each do |station| %>
        <li>
 	<a class="station-logo-link" href="http://mexicometro.org/metro/line8/<%="#{station.name}".html_safe%>/" title="<%="#{station.name}".html_safe%>">
-	<img src="<%= Icon.find(station.iconID).icon.url %>" class="attachment-small-station-thumbnail wp-post-image" alt="<%="#{station.name}"%>" width="22" height="22" scale="1.5"></a>
+	<img src="<%= Icon.find(station.iconID).icon.url %>" class="attachment-small-station-thumbnail wp-post-image" alt="<%="#{station.name}"%>" width="20" height="20" scale="1.5"></a>
     
 	<a id="<%= station.name %>" class="station-link <%='current-station' if @current_station==station.name %> <%='blink next-station' if @next_station==station.name %>" href="/metro/line8/<%= station.name %>/"><%=station.name.html_safe%></a>
     <% if  station.numOfConnections == 1 %>
@@ -375,7 +350,7 @@ li #line-name a, li #sidebar-first-link a {
   Your browser does not support the video tag.
 </video>
 </div>
-<div class="weather" style=" z-index: -100; left:0%;  width:15%; font-size:200%; overflow: hidden; ">
+<div class="weather" style=" z-index: -100; left:0%; margin-top:562px; width:15%; font-size:200%; overflow: hidden; position: absolute">
 <iframe title="weather" width="100%" src="/weathers/1"
  frameborder="0" noscrolling allowfullscreen style="overflow:hidden; height:80px;"></iframe>
 </div>
@@ -393,9 +368,9 @@ li #line-name a, li #sidebar-first-link a {
    <%# end %>
    style="overflow:hidden;" frameborder="0" width="332" height="92"></iframe>
 </div>
-<div id="radlogo"  class="radlogo" >
-<marquee behavior="scroll" direction="left" width="100%">
-<p style="margin:0">Demo System Provided by <img src="/system/icons/icons/000/000/041/original/rad_logo.jpg?1429061899"  height="50" alt="RAD" /><img height="50" alt="Bynet Logo" src="/system/icons/icons/000/000/043/original/Bynet-English-logo.gif?1429115543" border="0"><img  height="50" alt="MEI LOGO" src="/system/icons/icons/000/000/044/original/logotipo-mei.jpg?1429116768" border="0"></p>
-<!-- <p style="margin:0">Demo System Provided by MEI </p> -->
+<div id="radlogo">
+<marquee behavior="scroll" direction="left">
+<p><img src="/system/icons/icons/000/000/041/original/rad_logo.jpg?1429061899"  height="50" alt="RAD" /><img height="50" alt="Bynet Logo" src="/system/icons/icons/000/000/043/original/Bynet-English-logo.gif?1429115543" border="0"><img  height="50" alt="MEI LOGO" src="/system/icons/icons/000/000/044/original/logotipo-mei.jpg?1429116768" border="0"></p>
+<p>Demo System Provided by MEI </p>
 </marquee>
 </div>
