@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Source:</strong>
+  <%= @cam_event.source %>
+</p>
+
+<p>
+  <strong>Eventtime:</strong>
+  <%= @cam_event.eventTime %>
+</p>
+
+<p>
+  <strong>Eventtype:</strong>
+  <%= @cam_event.eventType %>
+</p>
+
+<p>
+  <strong>Acknowledged:</strong>
+  <%= @cam_event.acknowledged %>
+</p>
+
+<p>
+  <strong>Acknowledged at:</strong>
+  <%= @cam_event.acknowledged_at %>
+</p>
+
+<%= link_to 'Edit', edit_cam_event_path(@cam_event) %> |
+<%= link_to 'Back', cam_events_path %>

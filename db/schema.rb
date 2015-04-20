@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150414023316) do
+ActiveRecord::Schema.define(version: 20150420141941) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -45,6 +45,16 @@ ActiveRecord::Schema.define(version: 20150414023316) do
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+
+  create_table "cam_events", force: true do |t|
+    t.string   "source"
+    t.string   "eventTime"
+    t.string   "eventType"
+    t.boolean  "acknowledged"
+    t.datetime "acknowledged_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "connections", force: true do |t|
     t.integer  "stationID"

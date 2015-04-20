@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :cam_events
+
   resources :weathers
 
   get 'banner/rss'
@@ -16,36 +18,32 @@ Rails.application.routes.draw do
   post '/banner/refresh' => 'banner#refresh'
   get '/banner/refresh' => 'banner#refresh'
   get 'stations/bulk'
-  resources :markers
-
-  resources :s_samples
-
-  resources :oids
-
-  #resources :snmps
+  get '/panic', to: 'cam_events#panic_get', as: :panic_get
+  post '/panic', to: 'cam_events#panic_post', as: :panic_post 
   get '/s' => 'samples#snmp'
-
+  get '/sample' => 'samples#sample'
+    
+  resources :markers
+  resources :s_samples
+  resources :oids
+  #resources :snmps
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   resources :samples
-
   resources :myroutes
-
   resources :device_commands
-
   resources :device_types
-
   resources :devices
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+   root 'map#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
-  get '/sample' => 'samples#sample'
+  
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

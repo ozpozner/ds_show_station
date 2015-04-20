@@ -1,0 +1,2 @@
+module CamEventsHelper
+end

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  source: MyString
+  eventTime: MyString
+  eventType: MyString
+  acknowledged: false
+  acknowledged_at: 2015-04-20 09:19:41
+
+two:
+  source: MyString
+  eventTime: MyString
+  eventType: MyString
+  acknowledged: false
+  acknowledged_at: 2015-04-20 09:19:41
